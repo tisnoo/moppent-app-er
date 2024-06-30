@@ -7,16 +7,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
-        <ion-img [src]="photo.webviewPath"></ion-img>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-list>
+    <ion-item button *ngFor="let genre of item$|async"  (click)='goToGenre(genre)'>
+      <ion-label>{{genre.name}}</ion-label>
+    </ion-item>
+</ion-list>
 
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="addPhotoToGallery()">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
