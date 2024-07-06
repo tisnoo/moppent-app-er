@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{genre?.name}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <swiper-container class="swiper-slider">
+    <swiper-slide *ngFor="let joke of item$|async" class="swiper-slider">
+      <ion-card>
+        <!-- <ion-card-header>
+          <ion-card-title>{{joke.joke}}</ion-card-title>
+          <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        </ion-card-header> -->
+      
+        <ion-card-content>
+          {{joke.joke}}
+        </ion-card-content>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+</ion-content>

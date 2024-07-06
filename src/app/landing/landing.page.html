@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item button *ngFor="let genre of item$|async"  (click)='goToGenre(genre)'>
+    <ion-item button *ngFor="let genre of item$|async"  [routerLink]="['/tab1']" [queryParams]="genre">
       <ion-label>{{genre.name}}</ion-label>
     </ion-item>
 </ion-list>

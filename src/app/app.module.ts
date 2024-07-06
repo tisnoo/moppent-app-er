@@ -14,6 +14,7 @@ import { getPerformance, providePerformance } from '@angular/fire/performance';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { getRemoteConfig, provideRemoteConfig } from '@angular/fire/remote-config';
 import { environment } from '../environments/environment';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,7 +38,8 @@ import { environment } from '../environments/environment';
     provideFirestore(() => getFirestore()),
     providePerformance(() => getPerformance()),
     provideStorage(() => getStorage()),
-    provideRemoteConfig(() => getRemoteConfig())
+    provideRemoteConfig(() => getRemoteConfig()),
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebaseConfig}
   ],
   bootstrap: [AppComponent],
 })
