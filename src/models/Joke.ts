@@ -1,19 +1,26 @@
 import { DocumentData, QueryDocumentSnapshot } from "@angular/fire/compat/firestore";
 
 
-type JokeType = 'joke';
+type JokeType = 'joke' | 'riddle';
 
 type AbstractJokeModel = {
   genre: string;
   type: JokeType;
 }
 
-interface JokeModel extends AbstractJokeModel {
+interface JokeModelJoke extends AbstractJokeModel {
   type: 'joke';
   joke: string;
 }
 
-type Joke = JokeModel;
+
+interface JokeModelRiddle extends AbstractJokeModel {
+  type: 'riddle';
+  question: string;
+  answer: string;
+}
+
+type JokeModel = JokeModelJoke | JokeModelRiddle;
 
 export function jokeFromData(doc: QueryDocumentSnapshot<DocumentData>): JokeModel {
   const data = doc.data() as DocumentData;
@@ -24,11 +31,22 @@ export function jokeFromData(doc: QueryDocumentSnapshot<DocumentData>): JokeMode
     type: jokeType,
   }
 
-  return {
-    ...superProps,
-    joke: data['joke'],
+  switch (jokeType) {
+    case 'joke':
+      return {
+        ...superProps,
+        type: 'joke',
+        joke: data['joke'],
+      }
+    case 'riddle': 
+      return {
+        ...superProps,
+        type: 'riddle',
+        question: data['joke'],
+        answer: data['joke'],
+      }
   }
 }
 
 
-export {Joke};
+export {JokeModel, JokeModelJoke, JokeModelRiddle};
