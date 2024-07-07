@@ -1,2 +1,14 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+
+:root {
+  --ion-font-family: 'baloo-regular'
+}
+
+@font-face {
+  font-family: 'baloo-regular';
+  src: url('./Baloo-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}

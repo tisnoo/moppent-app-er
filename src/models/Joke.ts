@@ -40,10 +40,10 @@ export function jokeFromData(doc: QueryDocumentSnapshot<DocumentData>): JokeMode
       }
     case 'riddle': 
       return {
-        ...superProps,
+      ...superProps,
         type: 'riddle',
-        question: data['joke'],
-        answer: data['joke'],
+        question: data['question'],
+        answer: data['answer'],
       }
   }
 }

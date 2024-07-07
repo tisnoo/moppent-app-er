@@ -27,6 +27,7 @@ export class JokeSliderPage implements OnInit {
         this.genre = params as GenreModel;
         this.item$ = this.firestore.collection<DocumentData>('jokes', ref => ref.where('genre', '==', this.genre?.id)).get()
           .pipe(map(actions => {
+            console.log(actions.docs);
             return actions.docs.map(jokeFromData);
         }));
       });

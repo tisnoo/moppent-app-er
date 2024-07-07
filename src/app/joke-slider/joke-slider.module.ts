@@ -18,4 +18,4 @@ import { SingleJokeContainerComponent } from '../single-joke-container/single-jo
   declarations: [JokeSliderPage],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class Tab1PageModule {}
+export class JokeSliderModule {}

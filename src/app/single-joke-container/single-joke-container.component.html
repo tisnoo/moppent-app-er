@@ -1,1 +1,6 @@
-<app-joke *ngIf="isJokeModelJoke(joke)" [joke]="joke"></app-joke>
+<ion-card [style]="styling"> 
+  <ion-card-content>
+    <app-joke *ngIf="isJokeModelJoke(joke)" [joke]="joke"></app-joke>
+    <app-riddle *ngIf="isJokeModelRiddle(joke)" [joke]="joke"></app-riddle>
+  </ion-card-content>
+</ion-card>
