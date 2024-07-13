@@ -1,12 +1,20 @@
 .card {
-  --background: #000;
-  --color: white;
+  width: 30vw;
+  height: 70vh;
+  border-radius: 10px; /* Optional: Adjust the border radius */
+  display: flex;
+  flex-direction: column;
 }
 
-// ion-card-title {
-//   --color: #52ffe4;
-// }
+.content {
+  overflow: hidden;
+  overflow-y: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
 
-// ion-card-subtitle {
-//   --color: #d1fff8;
-// }
+
+ion-card * {
+  font-size: 50px; /* Set the desired font size here */
+}

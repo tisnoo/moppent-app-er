@@ -50,13 +50,4 @@ export class SingleJokeContainerComponent extends JokeSuper<JokeModel> {
   isJokeModelRiddle(joke: JokeModel): joke is JokeModelRiddle {
     return joke.type === 'riddle';
   }
-
-  generateStyle(): string {
-    return `
-      --background: ${this.styling.background};
-      --color: ${this.styling.color};
-      box-shadow: 0 4px 8px #FFF !important;
-      border-radius: 10px !important;
-    `;
-  }
 }
