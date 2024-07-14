@@ -1,7 +1,21 @@
-.swiper-slider {
-  align-items: center; /* add this will all relevant prefixes */
+.fullheight {
   height: 100%;
-  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Center vertically */
+}
+
+.center-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the swiper-container vertically */
+}
+
+.swiper-wrapper {
+  width: 100%; /* Ensure the swiper-wrapper takes full width */
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center; /* Center content vertically within each slide */
+  justify-content: center; /* Center content horizontally if needed */
 }

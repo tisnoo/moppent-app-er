@@ -4,7 +4,7 @@ import { LandingPage } from '../landing/landing.page';
 import { ActivatedRoute } from '@angular/router';
 import { GenreModel, genreConverter } from '../../models/Genre';
 import { AngularFirestore, AngularFirestoreCollection, DocumentData, QueryDocumentSnapshot } from '@angular/fire/compat/firestore';import { Observable, map } from 'rxjs';
-import { Joke, jokeFromData } from '../../models/Joke';
+import { JokeModel, jokeFromData } from '../../models/Joke';
 
 register();
 
@@ -14,7 +14,7 @@ register();
   styleUrls: ['joke-slider.page.scss']
 })
 export class JokeSliderPage implements OnInit {
-  item$?: Observable<Joke[]>;
+  item$?: Observable<JokeModel[]>;
   firestore = inject(AngularFirestore);
   public readonly root = LandingPage;
   public genre?: GenreModel;
@@ -27,6 +27,7 @@ export class JokeSliderPage implements OnInit {
         this.genre = params as GenreModel;
         this.item$ = this.firestore.collection<DocumentData>('jokes', ref => ref.where('genre', '==', this.genre?.id)).get()
           .pipe(map(actions => {
+            console.log(actions.docs);
             return actions.docs.map(jokeFromData);
         }));
       });

@@ -7,11 +7,11 @@ const routes: Routes = [
     children: [
       {
         path: 'landing',
-        loadChildren: () => import('./landing/landing.module').then(m => m.Tab2PageModule)
+        loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule)
       },
       {
         path: 'tab1',
-        loadChildren: () => import('./joke-slider/joke-slider.module').then(m => m.Tab1PageModule)
+        loadChildren: () => import('./joke-slider/joke-slider.module').then(m => m.JokeSliderModule)
       },
       {
         path: '',

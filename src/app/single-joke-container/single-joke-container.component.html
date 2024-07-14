@@ -1,0 +1,6 @@
+<ion-card class="card" [style.background-color]="styling.background" [style.color]="styling.color" [style.box-shadow]="'0px 0px 15px 0px '+styling.background"> 
+  <div class="content">
+    <app-joke *ngIf="isJokeModelJoke(joke)" [joke]="joke"></app-joke>
+    <app-riddle *ngIf="isJokeModelRiddle(joke)" [joke]="joke"></app-riddle>
+  </div>
+</ion-card>
