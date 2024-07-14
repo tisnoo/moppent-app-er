@@ -12,10 +12,6 @@
 
 <ion-content [fullscreen]="true">
   <div class="fullheight center-vertical">
-    <swiper-container class="swiper-wrapper">
-      <swiper-slide *ngFor="let joke of item$|async" class="swiper-slide">
-        <app-single-joke-container [joke]="joke"></app-single-joke-container>
-      </swiper-slide>
-    </swiper-container>
+    <swiper-container #swiper class="swiper-wrapper" navigation="true" pagination="true"></swiper-container>
   </div>
 </ion-content>
